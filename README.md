@@ -101,3 +101,8 @@ Short summaries (1–2 sentences) were generated for each topic segment to provi
 - Short summaries for each segment
 
 All results are stored in the `results/` directory.
+## Week 4: Transcript Navigation and Segment Jumping
+
+Implemented a Streamlit-based user interface that allows users to navigate podcast transcripts by topic. 
+The UI loads segmented transcript outputs from Week 3 and enables instant segment jumping using a dropdown and keyword-based search.
+

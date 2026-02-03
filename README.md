@@ -105,4 +105,35 @@ All results are stored in the `results/` directory.
 
 Implemented a Streamlit-based user interface that allows users to navigate podcast transcripts by topic. 
 The UI loads segmented transcript outputs from Week 3 and enables instant segment jumping using a dropdown and keyword-based search.
+## Week 5
+– Visualization and Detail Enhancements
+
+This milestone focuses on improving the presentation, clarity, and usability of the podcast analysis outputs without introducing new models.
+
+### Key Enhancements
+
+- **Interactive Segment Navigation**
+  - Implemented a scrollable segment list to navigate the podcast timeline.
+  - Clicking a segment displays its corresponding details.
+
+- **Sentiment Analysis**
+  - Added segment-level sentiment analysis using VADER.
+  - Each segment is assigned a sentiment label (Positive / Neutral / Negative) along with a numerical polarity score.
+
+- **Keyword Visualization**
+  - Reused previously extracted keywords from earlier milestones.
+  - Visualized keywords using clean, readable word clouds to provide an at-a-glance understanding of segment themes.
+
+- **Polished Segment Summaries**
+  - Refined existing summaries by correcting grammar, removing filler words, and limiting them to 2–3 concise sentences.
+  - No summaries were regenerated; only presentation-level refinement was applied.
+
+- **UI & Formatting Improvements**
+  - Organized segment information into clearly separated sections: Title, Summary, Sentiment, Keywords, and Transcript.
+  - Focused on readability and usability rather than visual complexity.
+
+### Outcome
+
+Week 5enhances interpretability and presentation quality, making the analysis results easier to explore and understand while preserving the original analytical pipeline.
+
 

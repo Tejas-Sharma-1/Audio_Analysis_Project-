@@ -135,5 +135,27 @@ This milestone focuses on improving the presentation, clarity, and usability of 
 ### Outcome
 
 Week 5enhances interpretability and presentation quality, making the analysis results easier to explore and understand while preserving the original analytical pipeline.
+## Week 6 – System Testing and Feedback
+
+The system was evaluated on multiple short audio samples with varying speaking styles and clarity.
+
+Testing Focus:
+- Transcription accuracy
+- Topic segmentation
+- Summary readability
+- Keyword relevance
+- Sentiment correctness
+
+User Feedback:
+Users found the transcript readable and summaries useful, but suggested clearer segment labels and removal of irrelevant keywords.
+
+Improvements Made:
+- Reduced summary verbosity
+- Improved segment naming clarity
+- Filtered non-informative keywords
+- Minor formatting adjustments
+
+Outcome:
+The system produced more understandable and structured outputs after iterative refinement.
 
 

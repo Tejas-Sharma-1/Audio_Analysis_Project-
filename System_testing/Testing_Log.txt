@@ -1,0 +1,58 @@
+System Testing Log – Automated Podcast Transcription
+
+Audio Sample 1 – Clear Speech Conversation
+Source: Previously processed audio sample
+Approx Duration: Short clip (~10 sec)
+Speakers: Single speaker
+
+Observations:
+
+* Transcription mostly accurate with minor spelling mistakes in proper nouns
+* Sentence structure readable and understandable
+* Topic segmentation reasonable but slightly long segments
+* Summary captured main idea but slightly verbose
+* Extracted keywords relevant to topic
+* Sentiment detection matched neutral tone
+* No UI or formatting issues observed
+
+Overall Performance:
+System handled clean audio well and produced understandable structured output.
+
+Audio Sample 2 – Fast Speech / Lecture Style
+Source: Previously processed audio sample
+Approx Duration: Short clip (~10 sec)
+Speakers: Single speaker
+
+Observations:
+
+* Some words missed due to fast speaking speed
+* Segmentation boundaries slightly unclear
+* Summary understandable but could be shorter
+* Few unnecessary keywords present
+* Sentiment detected as neutral correctly
+* Output formatting consistent
+
+Overall Performance:
+System functional but accuracy affected by fast speech rate.
+
+Audio Sample 3 – Slight Background Noise
+Source: Previously processed audio sample
+Approx Duration: Short clip (~10 sec)
+Speakers: Single speaker
+
+Observations:
+
+* Minor transcription inaccuracies due to background noise
+* Segment structure readable
+* Summary concise and meaningful
+* Keywords mostly relevant
+* Sentiment classification appropriate
+* Timestamp alignment acceptable
+
+Overall Performance:
+System remained usable even with noisy audio conditions.
+
+Conclusion:
+The system performed reliably across different audio conditions.
+Most issues were minor readability and verbosity concerns rather than functional failures.
+The testing indicates the system is stable and suitable for further usability improvements.

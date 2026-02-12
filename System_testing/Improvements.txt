@@ -1,0 +1,27 @@
+System Improvement Report – Week 6 Iteration
+
+Based on system testing and user feedback, several usability and clarity improvements were identified and addressed.
+
+Issues Identified:
+
+* Summaries were occasionally longer than necessary
+* Some extracted keywords were non-informative or repetitive
+* Segment labels were not always descriptive
+* Minor readability inconsistencies in output formatting
+* Fast speech caused slightly unclear segments
+
+Improvements Implemented:
+
+* Adjusted summary generation to produce more concise text
+* Filtered filler words and non-meaningful keywords
+* Improved segment label clarity for better understanding
+* Standardized formatting and spacing of outputs
+* Enhanced readability of transcript structure
+
+Result After Iteration:
+The output became easier to read and quicker to understand.
+Users were able to grasp the conversation flow faster and reported improved clarity in summaries and keywords.
+
+Note:
+No machine learning models were retrained.
+Improvements focused only on presentation, clarity, and usability as per Week-6 requirements.

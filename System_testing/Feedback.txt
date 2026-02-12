@@ -1,0 +1,19 @@
+User Feedback Summary – Automated Podcast Transcription Tool
+
+Sanyam:
+He was able to understand the generated transcript but suggested removing filler words such as “okay” and “know”. He also recommended improving formatting and proper capitalization of words like LinkedIn.
+
+Vishal:
+He found the output readable and understandable without difficulty.
+
+Harsh:
+He reported that the generated text was clear and easy to follow.
+
+My Elder Sister:
+She found the tool useful and liked the summarized output.
+
+Lakshyesh:
+He appreciated the readable format and mentioned that summaries and highlighted keywords helped in quickly understanding the content.
+
+Overall Observation:
+Most users clearly understood the generated results. The main improvement suggestions were removal of unnecessary filler words, better formatting, and slightly clearer summaries.

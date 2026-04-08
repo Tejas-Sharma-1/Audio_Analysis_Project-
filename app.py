@@ -164,10 +164,38 @@ with left:
 # ---------------- RIGHT PANEL ----------------
 selected_seg = next(s for s in segments if s["id"] == st.session_state.selected_id)
 
+# ---------------- AUDIO SETUP (CHUNK-BASED) ----------------
+CHUNK_AUDIO_DIR = "processed_chunks"
+
+def get_chunk_audio(segment):
+    chunk_id = segment["id"]
+
+    # Try matching chunk audio (WAV format)
+    possible_files = [
+        f"Podcast1_chunk_{chunk_id}.wav"
+    ]
+
+    for file in possible_files:
+        path = os.path.join(CHUNK_AUDIO_DIR, file)
+        if os.path.exists(path):
+            return path
+
+    return None
+
 with right:
     # ---------------- TITLE ----------------
     st.markdown("<div class='section-title'>TITLE</div>", unsafe_allow_html=True)
     st.subheader(selected_seg["label"])
+
+    # ---------------- AUDIO (SYNCED WITH SEGMENT) ----------------
+    st.markdown("<div class='section-title'>AUDIO</div>", unsafe_allow_html=True)
+
+    audio_path = get_chunk_audio(selected_seg)
+
+    if audio_path:
+        st.audio(audio_path)
+    else:
+        st.warning("Chunk audio not found for this segment.")
 
     # ---------------- SUMMARY ----------------
     st.markdown("<div class='section-title'>SUMMARY</div>", unsafe_allow_html=True)

@@ -1,9 +1,11 @@
 import streamlit as st
 import os
 import re
+import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
+nltk.download('vader_lexicon')
 
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(
@@ -163,12 +165,20 @@ with left:
 selected_seg = next(s for s in segments if s["id"] == st.session_state.selected_id)
 
 with right:
+    # ---------------- TITLE ----------------
     st.markdown("<div class='section-title'>TITLE</div>", unsafe_allow_html=True)
     st.subheader(selected_seg["label"])
 
+    # ---------------- SUMMARY ----------------
     st.markdown("<div class='section-title'>SUMMARY</div>", unsafe_allow_html=True)
-    st.write(selected_seg["summary"] or "Summary not available.")
+    
+    summary = selected_seg["summary"]
+    if not summary:
+        summary = polish_summary(selected_seg["transcript"][:300])
 
+    st.write(summary)
+
+    # ---------------- SENTIMENT ----------------
     st.markdown("<div class='section-title'>SENTIMENT</div>", unsafe_allow_html=True)
     icon = {"Positive": "🟢", "Neutral": "🟡", "Negative": "🔴"}
     st.markdown(
@@ -176,11 +186,12 @@ with right:
         f"(score: `{selected_seg['sentiment_score']:.2f}`)"
     )
 
+    # ---------------- KEYWORDS ----------------
     st.markdown("<div class='section-title'>KEYWORDS</div>", unsafe_allow_html=True)
     if selected_seg["keywords"]:
         wc = WordCloud(
             width=600,
-            height=220,
+            height=200,
             background_color="white",
             colormap="Blues",
             stopwords=CUSTOM_STOPWORDS,
@@ -188,15 +199,30 @@ with right:
             collocations=False
         ).generate(" ".join(selected_seg["keywords"]))
 
-        fig, ax = plt.subplots(figsize=(5.5, 2.2))
+        fig, ax = plt.subplots(figsize=(4, 1.6))
         ax.imshow(wc, interpolation="bilinear")
         ax.axis("off")
         st.pyplot(fig)
     else:
         st.info("No keywords available.")
 
+    # ---------------- SEARCH ----------------
+    st.markdown("<div class='section-title'>SEARCH</div>", unsafe_allow_html=True)
+    query = st.text_input("🔍 Search in transcript")
+
+    filtered_text = selected_seg["transcript"]
+    if query:
+        filtered_text = " ".join(
+            [line for line in selected_seg["transcript"].split('.') if query.lower() in line.lower()]
+        )
+
+    # ---------------- TRANSCRIPT ----------------
     st.markdown("<div class='section-title'>TRANSCRIPT</div>", unsafe_allow_html=True)
     st.markdown(
-        f"<div class='transcript-box'>{selected_seg['transcript']}</div>",
+        f"""
+        <div class='transcript-box' style="max-height:300px; overflow-y:auto;">
+        {filtered_text}
+        </div>
+        """,
         unsafe_allow_html=True
     )

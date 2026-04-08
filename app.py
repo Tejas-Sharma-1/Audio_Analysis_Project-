@@ -133,35 +133,32 @@ segments = list(segments.values())
 
 # ---------------- HEADER ----------------
 st.title("🎙️ Podcast Transcript Navigator")
-st.caption("Milestone 3 · Visualization and Detail Enhancements")
+st.caption("Milestone· Visualization and Detail Enhancements")
 
 # ---------------- STATE ----------------
 if "selected_id" not in st.session_state:
     st.session_state.selected_id = segments[0]["id"]
 
 # ---------------- LAYOUT ----------------
-left, right = st.columns([1.3, 3.7])
+left, right = st.columns([0.8, 3.12])
 
-# ---------------- LEFT PANEL (SCROLLABLE, YOUR UI) ----------------
+# ---------------- LEFT PANEL (DESKTOP MAIN) ----------------
+# ---------------- LEFT PANEL ----------------
 with left:
-    st.markdown("<div class='section-title'>SEGMENTS</div>", unsafe_allow_html=True)
+    st.markdown("### 🎯 Segments")
 
-    with st.container(height=520):
+    # Scrollable container (native Streamlit)
+    with st.container(height=450):
         for seg in segments:
             active = seg["id"] == st.session_state.selected_id
-            css = "segment-item segment-active" if active else "segment-item"
-
-            st.markdown(f"<div class='{css}'>", unsafe_allow_html=True)
 
             if st.button(
-                seg["label"],
-                key=f"seg_{seg['id']}_{hash(seg['transcript'])}"
+                f"{'👉 ' if active else ''}{seg['label']}",
+                key=f"seg_{seg['id']}",
+                use_container_width=True
             ):
                 st.session_state.selected_id = seg["id"]
-
-            st.markdown("</div>", unsafe_allow_html=True)
-
-# ---------------- RIGHT PANEL ----------------
+ #______________________Right Panel ___________________
 selected_seg = next(s for s in segments if s["id"] == st.session_state.selected_id)
 
 # ---------------- AUDIO SETUP (CHUNK-BASED) ----------------
